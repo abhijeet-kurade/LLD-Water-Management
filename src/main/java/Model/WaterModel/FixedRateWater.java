@@ -1,12 +1,12 @@
 package Model.WaterModel;
 
-public abstract class FixedRateWater extends Water{
-    double rate;
-    public FixedRateWater(String waterType) {
-        super(waterType);
+public class FixedRateWater extends Water{
+    FixRateWaterType waterType;
+    public FixedRateWater(FixRateWaterType waterType) {
+        super(waterType.getWaterType());
+        this.waterType = waterType;
     }
-    protected void setRate(double rate){
-        this.rate = rate;
+    public double getRate(){
+        return this.waterType.getRate();
     }
-    public abstract double getRate();
 }

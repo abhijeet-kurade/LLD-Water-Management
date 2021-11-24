@@ -3,11 +3,13 @@ package Model.WaterModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class SlabRateWater extends Water {
+
+public class SlabRateWater extends Water {
+    SlabRateWaterTypes slabRateWater;
     List<Slab> slabs;
-    public SlabRateWater(String waterType) {
-        super(waterType);
-        this.slabs = new ArrayList<>();
+    public SlabRateWater(SlabRateWaterTypes slabRateWater) {
+        super(slabRateWater.getWaterType());
+        this.slabRateWater = slabRateWater;
     }
     public boolean addSlab(int slabStart, int slabEnd, int rate ){
         if(validateSlab(slabStart, slabEnd)){
@@ -22,5 +24,7 @@ public abstract class SlabRateWater extends Water {
         if(lastSlab.slabEnd+1 != slabStart) return false;
         return slabStart < slabEnd;
     }
-    public abstract List<Slab> getSlabs();
+    public  List<Slab> getSlabs(){
+        return this.slabRateWater.getSlabs();
+    }
 }

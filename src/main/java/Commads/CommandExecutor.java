@@ -31,7 +31,7 @@ public class CommandExecutor {
             int corp = Integer.parseInt(ratioValue[0]);
             int borewell= Integer.parseInt(ratioValue[1]);
             //System.out.println(apartmentType +" "+corp +" "+borewell);
-            this.apartment = CreateApartment.create(apartmentType, corp, borewell);
+            this.apartment = CreateApartment.create1(2, corp, borewell);
             this.strategy = new Strategy1(this.apartment, this.waterTypes);
             this.billing = new Billing(this.apartment, this.strategy);
         }

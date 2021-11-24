@@ -3,7 +3,6 @@ package Billing;
 import Billing.Strategies.Strategy;
 import Model.Apartment.Apartment;
 import Model.CONSTS;
-import Model.WaterModel.FixedRateWater;
 
 public class Billing {
     Apartment apartment;

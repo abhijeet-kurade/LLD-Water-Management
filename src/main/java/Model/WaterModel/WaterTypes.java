@@ -10,9 +10,9 @@ public class WaterTypes {
     public static HashMap<String, Water> getWaterTypes(){
         if(WaterTypes.waterTypes != null) return WaterTypes.waterTypes;
         WaterTypes.waterTypes = new HashMap<>();
-        WaterTypes.waterTypes.put(CorporationWater.waterType, new CorporationWater());
-        WaterTypes.waterTypes.put(BorewellWater.waterType, new BorewellWater());
-        WaterTypes.waterTypes.put(TankerWater.waterType, new TankerWater());
+        WaterTypes.waterTypes.put(FixRateWaterType.CorporationWater.getWaterType(), new FixedRateWater(FixRateWaterType.CorporationWater));
+        WaterTypes.waterTypes.put(FixRateWaterType.BorewellWater.getWaterType(), new FixedRateWater(FixRateWaterType.BorewellWater));
+        WaterTypes.waterTypes.put(SlabRateWaterTypes.TankerWater.getWaterType(), new SlabRateWater(SlabRateWaterTypes.TankerWater));
         return WaterTypes.waterTypes;
     }
 }

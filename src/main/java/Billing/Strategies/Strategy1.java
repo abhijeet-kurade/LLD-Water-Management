@@ -24,9 +24,9 @@ public class Strategy1 extends Strategy{
         int corporationWaterRatio = ratio.getCorporationWaterRatio();
         int borewellWaterRatio = ratio.getBorewellWaterRatio();
         double allocatedCorpWater= ((double)allocatedWater / ( corporationWaterRatio + borewellWaterRatio) ) * (double)corporationWaterRatio;
-        double allocatedCorpWaterCost = allocatedCorpWater * ((FixedRateWater)this.waterTypes.get(CorporationWater.waterType)).getRate();
+        double allocatedCorpWaterCost = allocatedCorpWater * ((FixedRateWater)this.waterTypes.get(FixRateWaterType.CorporationWater.getWaterType())).getRate();
         double allocatedBorewellWater= ((double)allocatedWater / ( corporationWaterRatio + borewellWaterRatio) ) * (double)borewellWaterRatio;
-        double allocatedBorewellWaterCost = allocatedBorewellWater * ((FixedRateWater)this.waterTypes.get(BorewellWater.waterType)).getRate();
+        double allocatedBorewellWaterCost = allocatedBorewellWater * ((FixedRateWater)this.waterTypes.get(FixRateWaterType.BorewellWater.getWaterType())).getRate();
         //System.out.println(allocatedCorpWaterCost +" "+ allocatedBorewellWaterCost);
         return allocatedCorpWaterCost + allocatedBorewellWaterCost;
     }
@@ -35,7 +35,7 @@ public class Strategy1 extends Strategy{
         int extraWater = this.apartment.getGuests() * waterPerPersonPerMonth;
         double tankerWaterCost = 0;
         int extraRemainWater  = extraWater;
-        SlabRateWater tankerWater = (SlabRateWater)this.waterTypes.get(TankerWater.waterType);
+        SlabRateWater tankerWater = (SlabRateWater)this.waterTypes.get(SlabRateWaterTypes.TankerWater.getWaterType());
         //System.out.println(tankerWater.getSlabs());
         for(Slab slab : tankerWater.getSlabs()){
             if(extraWater < slab.getSlabStart() || extraWater < 0) break;

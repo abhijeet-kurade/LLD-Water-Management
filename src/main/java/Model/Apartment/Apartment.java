@@ -1,18 +1,28 @@
 package Model.Apartment;
 
-public abstract class Apartment {
-    protected int people;
-    protected int guests;
-    protected Ratio ratio;
+public class Apartment {
+    private ApartmentType type;
+    private int guests;
+    private Ratio ratio;
 
-    public Apartment(int people, Ratio ratio) {
-        this.people = people;
-        this.guests = 0;
-        this.ratio = ratio;
+    public Apartment(ApartmentType type, int corporationWaterRatio, int borewellWaterRatio) {
+        this.type = type;
+        this.ratio = new Ratio(corporationWaterRatio, borewellWaterRatio);
     }
 
-    public abstract void addGuests(int guests);
-    public abstract int getPeople();
-    public abstract int getGuests();
-    public abstract Ratio getRatio();
+    public void addGuests(int guests){
+        this.guests += guests;
+    }
+
+    public int getPeople() {
+        return type.getPeople();
+    }
+
+    public int getGuests() {
+        return guests;
+    }
+
+    public Ratio getRatio() {
+        return this.ratio;
+    }
 }
